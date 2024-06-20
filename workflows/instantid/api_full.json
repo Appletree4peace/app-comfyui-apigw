@@ -1,0 +1,907 @@
+{
+  "1": {
+    "inputs": {
+      "provider": "CUDA"
+    },
+    "class_type": "InsightFaceLoader_Zho",
+    "_meta": {
+      "title": "📷InsightFace Loader"
+    }
+  },
+  "2": {
+    "inputs": {
+      "controlnet_path": "E:\\ComfyUI\\custom_nodes\\ComfyUI-InstantID\\checkpoints\\controlnet"
+    },
+    "class_type": "IDControlNetLoader",
+    "_meta": {
+      "title": "📷ID ControlNet Loader"
+    }
+  },
+  "4": {
+    "inputs": {
+      "Ipadapter_instantid_path": "E:\\ComfyUI\\custom_nodes\\ComfyUI-InstantID\\checkpoints",
+      "filename": "ip-adapter.bin",
+      "pipe": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "Ipadapter_instantidLoader",
+    "_meta": {
+      "title": "📷Ipadapter_instantid Loader"
+    }
+  },
+  "5": {
+    "inputs": {
+      "prompt": [
+        "49",
+        0
+      ],
+      "negative_prompt": [
+        "50",
+        0
+      ],
+      "style_name": "Watercolor"
+    },
+    "class_type": "ID_Prompt_Styler",
+    "_meta": {
+      "title": "📷ID Prompt_Styler"
+    }
+  },
+  "6": {
+    "inputs": {
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "5",
+        1
+      ],
+      "ip_adapter_scale": 0.8,
+      "controlnet_conditioning_scale": 0.8,
+      "steps": 50,
+      "guidance_scale": 5,
+      "enhance_face_region": true,
+      "seed": [
+        "28",
+        0
+      ],
+      "face_image": [
+        "7",
+        0
+      ],
+      "pipe": [
+        "4",
+        0
+      ],
+      "insightface": [
+        "1",
+        0
+      ],
+      "pose_image_optional": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "IDGenerationNode",
+    "_meta": {
+      "title": "📷InstantID Generation"
+    }
+  },
+  "7": {
+    "inputs": {
+      "image": "pasted/image (19).png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Portrait"
+    }
+  },
+  "8": {
+    "inputs": {
+      "image": "instantid_pose.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Pose"
+    }
+  },
+  "9": {
+    "inputs": {
+      "images": [
+        "53",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "10": {
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors",
+      "controlnet": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "IDBaseModelLoader_local",
+    "_meta": {
+      "title": "📷ID Base Model Loader locally"
+    }
+  },
+  "25": {
+    "inputs": {
+      "positive": [
+        "26",
+        0
+      ],
+      "negative": [
+        "26",
+        1
+      ],
+      "ip_adapter_scale": 0.8,
+      "controlnet_conditioning_scale": 0.8,
+      "steps": 50,
+      "guidance_scale": 5,
+      "enhance_face_region": true,
+      "seed": [
+        "28",
+        0
+      ],
+      "face_image": [
+        "7",
+        0
+      ],
+      "pipe": [
+        "4",
+        0
+      ],
+      "insightface": [
+        "1",
+        0
+      ],
+      "pose_image_optional": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "IDGenerationNode",
+    "_meta": {
+      "title": "📷InstantID Generation"
+    }
+  },
+  "26": {
+    "inputs": {
+      "prompt": [
+        "49",
+        0
+      ],
+      "negative_prompt": [
+        "50",
+        0
+      ],
+      "style_name": "Film Noir"
+    },
+    "class_type": "ID_Prompt_Styler",
+    "_meta": {
+      "title": "📷ID Prompt_Styler"
+    }
+  },
+  "27": {
+    "inputs": {
+      "images": [
+        "57",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "28": {
+    "inputs": {
+      "seed": 628703988862993
+    },
+    "class_type": "seed _O",
+    "_meta": {
+      "title": "seed _O"
+    }
+  },
+  "30": {
+    "inputs": {
+      "prompt": [
+        "49",
+        0
+      ],
+      "negative_prompt": [
+        "50",
+        0
+      ],
+      "style_name": "Neon"
+    },
+    "class_type": "ID_Prompt_Styler",
+    "_meta": {
+      "title": "📷ID Prompt_Styler"
+    }
+  },
+  "31": {
+    "inputs": {
+      "positive": [
+        "30",
+        0
+      ],
+      "negative": [
+        "30",
+        1
+      ],
+      "ip_adapter_scale": 0.8,
+      "controlnet_conditioning_scale": 0.8,
+      "steps": 50,
+      "guidance_scale": 5,
+      "enhance_face_region": true,
+      "seed": [
+        "28",
+        0
+      ],
+      "face_image": [
+        "7",
+        0
+      ],
+      "pipe": [
+        "4",
+        0
+      ],
+      "insightface": [
+        "1",
+        0
+      ],
+      "pose_image_optional": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "IDGenerationNode",
+    "_meta": {
+      "title": "📷InstantID Generation"
+    }
+  },
+  "32": {
+    "inputs": {
+      "images": [
+        "58",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "33": {
+    "inputs": {
+      "prompt": [
+        "49",
+        0
+      ],
+      "negative_prompt": [
+        "50",
+        0
+      ],
+      "style_name": "Jungle"
+    },
+    "class_type": "ID_Prompt_Styler",
+    "_meta": {
+      "title": "📷ID Prompt_Styler"
+    }
+  },
+  "34": {
+    "inputs": {
+      "positive": [
+        "33",
+        0
+      ],
+      "negative": [
+        "33",
+        1
+      ],
+      "ip_adapter_scale": 0.8,
+      "controlnet_conditioning_scale": 0.8,
+      "steps": 50,
+      "guidance_scale": 5,
+      "enhance_face_region": true,
+      "seed": [
+        "28",
+        0
+      ],
+      "face_image": [
+        "7",
+        0
+      ],
+      "pipe": [
+        "4",
+        0
+      ],
+      "insightface": [
+        "1",
+        0
+      ],
+      "pose_image_optional": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "IDGenerationNode",
+    "_meta": {
+      "title": "📷InstantID Generation"
+    }
+  },
+  "35": {
+    "inputs": {
+      "images": [
+        "59",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "36": {
+    "inputs": {
+      "prompt": [
+        "49",
+        0
+      ],
+      "negative_prompt": [
+        "50",
+        0
+      ],
+      "style_name": "Mars"
+    },
+    "class_type": "ID_Prompt_Styler",
+    "_meta": {
+      "title": "📷ID Prompt_Styler"
+    }
+  },
+  "37": {
+    "inputs": {
+      "positive": [
+        "36",
+        0
+      ],
+      "negative": [
+        "36",
+        1
+      ],
+      "ip_adapter_scale": 0.8,
+      "controlnet_conditioning_scale": 0.8,
+      "steps": 50,
+      "guidance_scale": 5,
+      "enhance_face_region": true,
+      "seed": [
+        "28",
+        0
+      ],
+      "face_image": [
+        "7",
+        0
+      ],
+      "pipe": [
+        "4",
+        0
+      ],
+      "insightface": [
+        "1",
+        0
+      ],
+      "pose_image_optional": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "IDGenerationNode",
+    "_meta": {
+      "title": "📷InstantID Generation"
+    }
+  },
+  "38": {
+    "inputs": {
+      "images": [
+        "60",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "39": {
+    "inputs": {
+      "prompt": "",
+      "negative_prompt": "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, ugly",
+      "style_name": "Watercolor"
+    },
+    "class_type": "ID_Prompt_Styler",
+    "_meta": {
+      "title": "📷ID Prompt_Styler"
+    }
+  },
+  "40": {
+    "inputs": {
+      "positive": [
+        "45",
+        0
+      ],
+      "negative": [
+        "45",
+        1
+      ],
+      "ip_adapter_scale": 0.8,
+      "controlnet_conditioning_scale": 0.8,
+      "steps": 50,
+      "guidance_scale": 5,
+      "enhance_face_region": true,
+      "seed": [
+        "28",
+        0
+      ],
+      "face_image": [
+        "7",
+        0
+      ],
+      "pipe": [
+        "4",
+        0
+      ],
+      "insightface": [
+        "1",
+        0
+      ],
+      "pose_image_optional": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "IDGenerationNode",
+    "_meta": {
+      "title": "📷InstantID Generation"
+    }
+  },
+  "41": {
+    "inputs": {
+      "images": [
+        "61",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "42": {
+    "inputs": {
+      "prompt": [
+        "49",
+        0
+      ],
+      "negative_prompt": [
+        "50",
+        0
+      ],
+      "style_name": "Snow"
+    },
+    "class_type": "ID_Prompt_Styler",
+    "_meta": {
+      "title": "📷ID Prompt_Styler"
+    }
+  },
+  "43": {
+    "inputs": {
+      "positive": [
+        "42",
+        0
+      ],
+      "negative": [
+        "42",
+        1
+      ],
+      "ip_adapter_scale": 0.8,
+      "controlnet_conditioning_scale": 0.8,
+      "steps": 50,
+      "guidance_scale": 5,
+      "enhance_face_region": true,
+      "seed": [
+        "28",
+        0
+      ],
+      "face_image": [
+        "7",
+        0
+      ],
+      "pipe": [
+        "4",
+        0
+      ],
+      "insightface": [
+        "1",
+        0
+      ],
+      "pose_image_optional": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "IDGenerationNode",
+    "_meta": {
+      "title": "📷InstantID Generation"
+    }
+  },
+  "44": {
+    "inputs": {
+      "images": [
+        "62",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "45": {
+    "inputs": {
+      "prompt": [
+        "49",
+        0
+      ],
+      "negative_prompt": [
+        "50",
+        0
+      ],
+      "style_name": "Vibrant Color"
+    },
+    "class_type": "ID_Prompt_Styler",
+    "_meta": {
+      "title": "📷ID Prompt_Styler"
+    }
+  },
+  "46": {
+    "inputs": {
+      "prompt": [
+        "49",
+        0
+      ],
+      "negative_prompt": [
+        "50",
+        0
+      ],
+      "style_name": "Line art"
+    },
+    "class_type": "ID_Prompt_Styler",
+    "_meta": {
+      "title": "📷ID Prompt_Styler"
+    }
+  },
+  "47": {
+    "inputs": {
+      "positive": [
+        "46",
+        0
+      ],
+      "negative": [
+        "46",
+        1
+      ],
+      "ip_adapter_scale": 0.8,
+      "controlnet_conditioning_scale": 0.8,
+      "steps": 50,
+      "guidance_scale": 5,
+      "enhance_face_region": true,
+      "seed": [
+        "28",
+        0
+      ],
+      "face_image": [
+        "7",
+        0
+      ],
+      "pipe": [
+        "4",
+        0
+      ],
+      "insightface": [
+        "1",
+        0
+      ],
+      "pose_image_optional": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "IDGenerationNode",
+    "_meta": {
+      "title": "📷InstantID Generation"
+    }
+  },
+  "48": {
+    "inputs": {
+      "images": [
+        "63",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "49": {
+    "inputs": {
+      "string": ""
+    },
+    "class_type": "Simple String",
+    "_meta": {
+      "title": "Prompt (positive)"
+    }
+  },
+  "50": {
+    "inputs": {
+      "string": "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, ugly"
+    },
+    "class_type": "Simple String",
+    "_meta": {
+      "title": "Prompt (negative)"
+    }
+  },
+  "53": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 2,
+      "width": 960,
+      "height": 64,
+      "x_offset": 40,
+      "y_offset": 40,
+      "rotation": 0,
+      "opacity": 0,
+      "base_image": [
+        "6",
+        0
+      ],
+      "overlay_image": [
+        "54",
+        0
+      ],
+      "optional_mask": [
+        "54",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  },
+  "54": {
+    "inputs": {
+      "image": "instantid_logo (1).png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "57": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 2,
+      "width": 960,
+      "height": 64,
+      "x_offset": 40,
+      "y_offset": 40,
+      "rotation": 0,
+      "opacity": 0,
+      "base_image": [
+        "25",
+        0
+      ],
+      "overlay_image": [
+        "54",
+        0
+      ],
+      "optional_mask": [
+        "54",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  },
+  "58": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 2,
+      "width": 960,
+      "height": 64,
+      "x_offset": 40,
+      "y_offset": 40,
+      "rotation": 0,
+      "opacity": 0,
+      "base_image": [
+        "31",
+        0
+      ],
+      "overlay_image": [
+        "54",
+        0
+      ],
+      "optional_mask": [
+        "54",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  },
+  "59": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 2,
+      "width": 960,
+      "height": 64,
+      "x_offset": 40,
+      "y_offset": 40,
+      "rotation": 0,
+      "opacity": 0,
+      "base_image": [
+        "34",
+        0
+      ],
+      "overlay_image": [
+        "54",
+        0
+      ],
+      "optional_mask": [
+        "54",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  },
+  "60": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 2,
+      "width": 960,
+      "height": 64,
+      "x_offset": 40,
+      "y_offset": 40,
+      "rotation": 0,
+      "opacity": 0,
+      "base_image": [
+        "37",
+        0
+      ],
+      "overlay_image": [
+        "54",
+        0
+      ],
+      "optional_mask": [
+        "54",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  },
+  "61": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 2,
+      "width": 960,
+      "height": 64,
+      "x_offset": 40,
+      "y_offset": 40,
+      "rotation": 0,
+      "opacity": 0,
+      "base_image": [
+        "40",
+        0
+      ],
+      "overlay_image": [
+        "54",
+        0
+      ],
+      "optional_mask": [
+        "54",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  },
+  "62": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 2,
+      "width": 960,
+      "height": 64,
+      "x_offset": 40,
+      "y_offset": 40,
+      "rotation": 0,
+      "opacity": 0,
+      "base_image": [
+        "43",
+        0
+      ],
+      "overlay_image": [
+        "54",
+        0
+      ],
+      "optional_mask": [
+        "54",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  },
+  "63": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 2,
+      "width": 960,
+      "height": 64,
+      "x_offset": 40,
+      "y_offset": 40,
+      "rotation": 0,
+      "opacity": 0,
+      "base_image": [
+        "47",
+        0
+      ],
+      "overlay_image": [
+        "54",
+        0
+      ],
+      "optional_mask": [
+        "54",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workflows</title>
+</head>
+<body>
+    <h2>Choose a workflow form</h2>
+    <ul>
+        {% for workflow in workflow_list %}
+            <li><a href="wf/{{ workflow.code }}">{{ workflow.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<head>
+    <meta charset="UTF-8">
+    <title>Workflow {{ workflow.name }}</title>
+</head>
+
+<!-- body -->
+<body>
+    <h1>Workflow {{ workflow.name }}</h1>
+
+
+    <!-- ajax upload form -->
+    <h2>Upload file</h2>
+    <select id="fileSelect">
+        {% for file in workflow.files %}
+            <option value="{{ file.name }}">{{ file.name }}</option>
+        {% endfor %}
+    </select>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <form id="uploadForm" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput">
+        <button type="button" onclick="uploadFile()">Upload</button>
+    </form>
+
+    <div id="errorMessage" style="color: red;"></div>
+
+    <script type="text/javascript">
+        function uploadFile() {
+            var formData = new FormData();
+            formData.append('file', $('#fileInput')[0].files[0]);
+            var target_id = $('#fileSelect').val();
+
+            $.ajax({
+                url: '/upload',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('#' + target_id).val('images/' + response);
+                    $('#errorMessage').text('');
+                },
+                error: function(response) {
+                    $('#' + target_id).val('');
+                    $('#errorMessage').text(response.responseJSON.error);
+                }
+            });
+        }
+    </script>
+
+
+    <br />
+    <hr>
+    <br />
+
+
+    <!-- main form -->
+    <form id="workflow" method="post" action="{{ code }}/submit">
+        {% for file in workflow.files %}
+          <label>File - {{ file.name }}</label>
+          <input id="{{ file.name }}" type="text" name="{{ file.name }}" value="{{ file.default if file.default is defined else '' }}" />
+          <br />
+        {% endfor %}
+
+        {% for input in workflow.inputs %}
+        <label>{{ input.name }}</label>
+          {% if input.type == 'textarea' %}
+          <textarea id="{{ input.name }}" name="{{ input.name }}">{{ input.default if input.default is defined else '' }}</textarea>
+          {% elif input.type == 'text' %}
+          <input type="text" name="{{ input.name }}" value="{{ input.default if input.default is defined else '' }}" />
+          {% elif input.type == 'select' %}
+          <select name="{{ input.name }}">
+              <option value="">--Select--</option>
+            {% for option in input.options %}
+              <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+          </select>
+          {% elif input.type == 'checkbox' %}
+            <input type="checkbox" name="{{ input.name }}" value="1" {% if input.default %}checked{% endif %} />
+          {% endif %}
+        <br />
+        {% endfor %}
+        <br /><br />
+        <input type="submit" value="Submit" />
+    </form>
+
+
+</body>
+</html>

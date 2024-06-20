@@ -1,0 +1,26 @@
+---
+poses:
+  standing_singer:
+    prompt_positive: "Cute cartoon character singing with a standing mic in the front, smiling , happy smile: 2, solo"
+    pose_image: pose_standing_singer.jpeg
+    return_node_ids:
+      - "444"
+  sitting:
+    prompt_positive: "(Cute cartoon character sitting on chair),(looking at viewer:2),(feet on floor:2), (wooden floor:2), wearing simple beautiful clothes, portrait photography, (stage lighting from front:1.2), large aperture, empty background, empty studio, blue clean background :2, blue curtain: 2, blue empty background: 2, clean floor, blue floor: 2, solo, blue background: 2, happy smile: 2, solo"
+    pose_image: pose_sitting.png
+    return_node_ids:
+      - "444"
+  casual_sit:
+    prompt_positive: A cartoon character, smiling, casual dressing
+    pose_image: pose_casual_sit.png
+    return_node_ids:
+      - "444"
+  portrait:
+    prompt_positive: "(Cute cartoon character facing the camera),(looking at viewer:2)solo,solo,headshot"
+    pose_image: pose_sitting.png
+    return_node_ids:
+      - "444"
+  like_for_like:
+    prompt_positive: "Cute cartoon character"
+    return_node_ids:
+      - "444"

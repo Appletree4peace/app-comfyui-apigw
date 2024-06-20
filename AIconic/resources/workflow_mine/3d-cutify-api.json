@@ -1,0 +1,1134 @@
+{
+  "5": {
+    "inputs": {
+      "width": [
+        "175",
+        0
+      ],
+      "height": [
+        "175",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "366",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": [
+        "366",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "89": {
+    "inputs": {
+      "control_net_name": "OpenPoseXL2.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "173": {
+    "inputs": {
+      "images": [
+        "371",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "175": {
+    "inputs": {
+      "image": [
+        "373",
+        0
+      ]
+    },
+    "class_type": "Get image size",
+    "_meta": {
+      "title": "Get image size"
+    }
+  },
+  "331": {
+    "inputs": {
+      "image": "GettyImages-1258741760-72edc3bbf6c34c45aef2ee2aadcd7fbc (6).jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "340": {
+    "inputs": {
+      "clip_name": "IPAdapter_image_encoder_sd15_CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+    },
+    "class_type": "CLIPVisionLoader",
+    "_meta": {
+      "title": "Load CLIP Vision"
+    }
+  },
+  "341": {
+    "inputs": {
+      "ipadapter_file": "ip-adapter-plus-face_sdxl_vit-h.bin"
+    },
+    "class_type": "IPAdapterModelLoader",
+    "_meta": {
+      "title": "Load IPAdapter Model"
+    }
+  },
+  "354": {
+    "inputs": {
+      "seed": 1083912402528474,
+      "steps": 25,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1,
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "613",
+        0
+      ],
+      "positive": [
+        "400",
+        0
+      ],
+      "negative": [
+        "400",
+        1
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "356": {
+    "inputs": {
+      "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    }
+  },
+  "357": {
+    "inputs": {
+      "guide_size": 256,
+      "guide_size_for": true,
+      "max_size": 768,
+      "seed": 487450706476991,
+      "steps": 20,
+      "cfg": 6,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 0.5,
+      "feather": 5,
+      "noise_mask": true,
+      "force_inpaint": true,
+      "bbox_threshold": 0.5,
+      "bbox_dilation": 10,
+      "bbox_crop_factor": 3,
+      "sam_detection_hint": "center-1",
+      "sam_dilation": 0,
+      "sam_threshold": 0.93,
+      "sam_bbox_expansion": 0,
+      "sam_mask_hint_threshold": 0.7,
+      "sam_mask_hint_use_negative": "False",
+      "drop_size": 10,
+      "wildcard": "",
+      "cycle": 2,
+      "inpaint_model": false,
+      "noise_mask_feather": 10,
+      "image": [
+        "425",
+        5
+      ],
+      "model": [
+        "425",
+        0
+      ],
+      "positive": [
+        "425",
+        1
+      ],
+      "negative": [
+        "425",
+        2
+      ],
+      "bbox_detector": [
+        "356",
+        0
+      ],
+      "sam_model_opt": [
+        "358",
+        0
+      ],
+      "segm_detector_opt": [
+        "356",
+        1
+      ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+      "title": "FaceDetailer"
+    }
+  },
+  "358": {
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "Prefer GPU"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+      "title": "SAMLoader (Impact)"
+    }
+  },
+  "363": {
+    "inputs": {
+      "ckpt_name": {
+        "content": "samaritan3dCartoon_v40SDXL.safetensors",
+        "image": null
+      },
+      "example": "[none]"
+    },
+    "class_type": "CheckpointLoader|pysssss",
+    "_meta": {
+      "title": "Checkpoint Loader 🐍"
+    }
+  },
+  "364": {
+    "inputs": {
+      "text_positive": [
+        "447",
+        0
+      ],
+      "text_negative": [
+        "448",
+        0
+      ],
+      "style": "sai-enhance",
+      "log_prompt": false
+    },
+    "class_type": "SDXLPromptStyler",
+    "_meta": {
+      "title": "SDXL Prompt Styler"
+    }
+  },
+  "365": {
+    "inputs": {
+      "text_positive": [
+        "364",
+        0
+      ],
+      "text_negative": [
+        "364",
+        1
+      ],
+      "style": "sai-anime",
+      "log_prompt": false
+    },
+    "class_type": "SDXLPromptStyler",
+    "_meta": {
+      "title": "SDXL Prompt Styler"
+    }
+  },
+  "366": {
+    "inputs": {
+      "text_positive": [
+        "365",
+        0
+      ],
+      "text_negative": [
+        "365",
+        1
+      ],
+      "style": "sai-3d-model",
+      "log_prompt": false
+    },
+    "class_type": "SDXLPromptStyler",
+    "_meta": {
+      "title": "SDXL Prompt Styler"
+    }
+  },
+  "369": {
+    "inputs": {
+      "image_gen_width": [
+        "175",
+        0
+      ],
+      "image_gen_height": [
+        "175",
+        1
+      ],
+      "resize_mode": "Just Resize",
+      "original_image": [
+        "373",
+        0
+      ]
+    },
+    "class_type": "PixelPerfectResolution",
+    "_meta": {
+      "title": "Pixel Perfect Resolution"
+    }
+  },
+  "370": {
+    "inputs": {
+      "strength": 1,
+      "start_percent": 0,
+      "end_percent": 1,
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "control_net": [
+        "89",
+        0
+      ],
+      "image": [
+        "371",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet (Advanced)"
+    }
+  },
+  "371": {
+    "inputs": {
+      "detect_hand": "enable",
+      "detect_body": "enable",
+      "detect_face": "enable",
+      "resolution": [
+        "369",
+        0
+      ],
+      "bbox_detector": "yolox_l.onnx",
+      "pose_estimator": "dw-ll_ucoco_384.onnx",
+      "image": [
+        "373",
+        0
+      ]
+    },
+    "class_type": "DWPreprocessor",
+    "_meta": {
+      "title": "DWPose Estimator"
+    }
+  },
+  "373": {
+    "inputs": {
+      "side_length": 800,
+      "side": "Longest",
+      "upscale_method": "nearest-exact",
+      "crop": "disabled",
+      "image": [
+        "331",
+        0
+      ]
+    },
+    "class_type": "Image scale to side",
+    "_meta": {
+      "title": "Image scale to side"
+    }
+  },
+  "393": {
+    "inputs": {
+      "lora_name": {
+        "content": "concept_controls\\smiling.pt",
+        "image": null
+      },
+      "strength_model": 2,
+      "strength_clip": 1,
+      "example": "[none]",
+      "clip": [
+        "363",
+        1
+      ]
+    },
+    "class_type": "LoraLoader|pysssss",
+    "_meta": {
+      "title": "Lora Loader 🐍"
+    }
+  },
+  "397": {
+    "inputs": {
+      "images": [
+        "354",
+        5
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "398": {
+    "inputs": {
+      "control_net_name": "control-lora-canny-rank256.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "399": {
+    "inputs": {
+      "images": [
+        "402",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "400": {
+    "inputs": {
+      "strength": 0.8,
+      "start_percent": 0,
+      "end_percent": 0.4,
+      "positive": [
+        "370",
+        0
+      ],
+      "negative": [
+        "370",
+        1
+      ],
+      "control_net": [
+        "398",
+        0
+      ],
+      "image": [
+        "402",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet (Advanced)"
+    }
+  },
+  "402": {
+    "inputs": {
+      "preprocessor": "CannyEdgePreprocessor",
+      "resolution": [
+        "369",
+        0
+      ],
+      "image": [
+        "373",
+        0
+      ]
+    },
+    "class_type": "AIO_Preprocessor",
+    "_meta": {
+      "title": "AIO Aux Preprocessor"
+    }
+  },
+  "425": {
+    "inputs": {
+      "seed": 1039706223415418,
+      "steps": 20,
+      "cfg": 7,
+      "sampler_name": "dpmpp_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.7000000000000001,
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "354",
+        0
+      ],
+      "positive": [
+        "354",
+        1
+      ],
+      "negative": [
+        "354",
+        2
+      ],
+      "latent_image": [
+        "427",
+        0
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "427": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 1.5,
+      "samples": [
+        "429",
+        0
+      ]
+    },
+    "class_type": "LatentUpscaleBy",
+    "_meta": {
+      "title": "Upscale Latent By"
+    }
+  },
+  "429": {
+    "inputs": {
+      "pixels": [
+        "527",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "432": {
+    "inputs": {
+      "image": "GettyImages-1258741760-72edc3bbf6c34c45aef2ee2aadcd7fbc (5).jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "438": {
+    "inputs": {
+      "images": [
+        "605",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "442": {
+    "inputs": {
+      "images": [
+        "425",
+        5
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "443": {
+    "inputs": {
+      "images": [
+        "357",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "444": {
+    "inputs": {},
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "447": {
+    "inputs": {
+      "text": "A cartoon character Sit on the chair.feet on the ground，Wear simple, beautiful clothes, character concept design, clean background:2, bright environment:2,empty background:2, Clean floor, blue floor:2,solo, blue background:2, happy and smile, solo"
+    },
+    "class_type": "Text _O",
+    "_meta": {
+      "title": "Positive"
+    }
+  },
+  "448": {
+    "inputs": {
+      "text": "blurry, horror"
+    },
+    "class_type": "Text _O",
+    "_meta": {
+      "title": "Negative"
+    }
+  },
+  "453": {
+    "inputs": {
+      "VAE": [
+        "363",
+        2
+      ]
+    },
+    "class_type": "Anything Everywhere",
+    "_meta": {
+      "title": "Anything Everywhere"
+    }
+  },
+  "454": {
+    "inputs": {
+      "CLIP": [
+        "393",
+        1
+      ]
+    },
+    "class_type": "Anything Everywhere",
+    "_meta": {
+      "title": "Anything Everywhere"
+    }
+  },
+  "456": {
+    "inputs": {
+      "filename_prefix": "CuteYou/2024-01-24"
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "480": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 1,
+      "width": 1792,
+      "height": 1024,
+      "x_offset": -10,
+      "y_offset": [
+        "494",
+        0
+      ],
+      "rotation": 0,
+      "opacity": 30,
+      "base_image": [
+        "357",
+        0
+      ],
+      "overlay_image": [
+        "501",
+        0
+      ],
+      "optional_mask": [
+        "501",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  },
+  "482": {
+    "inputs": {
+      "image": [
+        "357",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "GetImageSize"
+    }
+  },
+  "488": {
+    "inputs": {
+      "image": [
+        "499",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "GetImageSize"
+    }
+  },
+  "492": {
+    "inputs": {
+      "op": "Sub",
+      "a": [
+        "495",
+        0
+      ],
+      "b": [
+        "493",
+        0
+      ]
+    },
+    "class_type": "CM_FloatBinaryOperation",
+    "_meta": {
+      "title": "FloatBinaryOperation"
+    }
+  },
+  "493": {
+    "inputs": {
+      "Value": [
+        "488",
+        1
+      ]
+    },
+    "class_type": "Int to float",
+    "_meta": {
+      "title": "Int to float"
+    }
+  },
+  "494": {
+    "inputs": {
+      "_float": [
+        "497",
+        0
+      ]
+    },
+    "class_type": "CR Float To Integer",
+    "_meta": {
+      "title": "🔧 CR Float To Integer"
+    }
+  },
+  "495": {
+    "inputs": {
+      "Value": [
+        "482",
+        1
+      ]
+    },
+    "class_type": "Int to float",
+    "_meta": {
+      "title": "Int to float"
+    }
+  },
+  "497": {
+    "inputs": {
+      "op": "Sub",
+      "a": [
+        "492",
+        0
+      ],
+      "b": [
+        "498",
+        0
+      ]
+    },
+    "class_type": "CM_FloatBinaryOperation",
+    "_meta": {
+      "title": "FloatBinaryOperation"
+    }
+  },
+  "498": {
+    "inputs": {
+      "Value": 10
+    },
+    "class_type": "Float",
+    "_meta": {
+      "title": "Right Margin"
+    }
+  },
+  "499": {
+    "inputs": {
+      "text": [
+        "500",
+        0
+      ],
+      "selected_font": "OverlockSC-Regular",
+      "align": "right",
+      "wrap": 42,
+      "graphspace": 10,
+      "linespace": 5,
+      "font_size": 40,
+      "color": "#ffffff",
+      "outline_size": 2,
+      "outline_color": "#000000",
+      "margin_x": 0,
+      "margin_y": 0,
+      "width": [
+        "482",
+        0
+      ],
+      "height": 51,
+      "swap": false
+    },
+    "class_type": "Text_Image_Multiline_Zho",
+    "_meta": {
+      "title": "Text_Image_Multiline_Zho"
+    }
+  },
+  "500": {
+    "inputs": {
+      "text": "AIconicStudio @ 2024"
+    },
+    "class_type": "Text _O",
+    "_meta": {
+      "title": "Text"
+    }
+  },
+  "501": {
+    "inputs": {
+      "image": [
+        "499",
+        0
+      ]
+    },
+    "class_type": "SplitImageWithAlpha",
+    "_meta": {
+      "title": "Split Image with Alpha"
+    }
+  },
+  "502": {
+    "inputs": {
+      "images": [
+        "499",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "503": {
+    "inputs": {},
+    "class_type": "Anything Everywhere",
+    "_meta": {
+      "title": "Anything Everywhere"
+    }
+  },
+  "524": {
+    "inputs": {
+      "panel_width": [
+        "175",
+        0
+      ],
+      "panel_height": [
+        "175",
+        1
+      ],
+      "fill_color": "custom",
+      "fill_color_hex": "#0066cc"
+    },
+    "class_type": "CR Color Panel",
+    "_meta": {
+      "title": "🌁 CR Color Panel"
+    }
+  },
+  "526": {
+    "inputs": {
+      "images": [
+        "524",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "527": {
+    "inputs": {
+      "overlay_resize": "Resize by rescale_factor",
+      "resize_method": "bilinear",
+      "rescale_factor": 1,
+      "width": 1792,
+      "height": 1024,
+      "x_offset": 0,
+      "y_offset": 0,
+      "rotation": 0,
+      "opacity": 0,
+      "base_image": [
+        "524",
+        0
+      ],
+      "overlay_image": [
+        "528",
+        0
+      ],
+      "optional_mask": [
+        "528",
+        1
+      ]
+    },
+    "class_type": "Image Overlay",
+    "_meta": {
+      "title": "Image Overlay"
+    }
+  },
+  "528": {
+    "inputs": {
+      "image": [
+        "605",
+        0
+      ]
+    },
+    "class_type": "SplitImageWithAlpha",
+    "_meta": {
+      "title": "Split Image with Alpha"
+    }
+  },
+  "531": {
+    "inputs": {
+      "images": [
+        "527",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "582": {
+    "inputs": {
+      "MODEL": [
+        "363",
+        0
+      ]
+    },
+    "class_type": "Anything Everywhere",
+    "_meta": {
+      "title": "Anything Everywhere"
+    }
+  },
+  "594": {
+    "inputs": {
+      "prompt": [
+        "608",
+        0
+      ],
+      "threshold": 0.2,
+      "sam_model": [
+        "595",
+        0
+      ],
+      "grounding_dino_model": [
+        "596",
+        0
+      ],
+      "image": [
+        "354",
+        5
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "595": {
+    "inputs": {
+      "model_name": "sam_vit_h (2.56GB)"
+    },
+    "class_type": "SAMModelLoader (segment anything)",
+    "_meta": {
+      "title": "SAMModelLoader (segment anything)"
+    }
+  },
+  "596": {
+    "inputs": {
+      "model_name": "GroundingDINO_SwinB (938MB)"
+    },
+    "class_type": "GroundingDinoModelLoader (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoModelLoader (segment anything)"
+    }
+  },
+  "599": {
+    "inputs": {
+      "masks": [
+        "594",
+        1
+      ]
+    },
+    "class_type": "Mask Invert",
+    "_meta": {
+      "title": "Mask Invert"
+    }
+  },
+  "605": {
+    "inputs": {
+      "image": [
+        "594",
+        0
+      ],
+      "alpha": [
+        "599",
+        0
+      ]
+    },
+    "class_type": "JoinImageWithAlpha",
+    "_meta": {
+      "title": "Join Image with Alpha"
+    }
+  },
+  "608": {
+    "inputs": {
+      "text": "person sitting on chair"
+    },
+    "class_type": "Text _O",
+    "_meta": {
+      "title": "Text _O"
+    }
+  },
+  "613": {
+    "inputs": {
+      "weight": 1,
+      "noise": 0.2,
+      "weight_type": "original",
+      "start_at": 0,
+      "end_at": 1,
+      "unfold_batch": false,
+      "ipadapter": [
+        "341",
+        0
+      ],
+      "clip_vision": [
+        "340",
+        0
+      ],
+      "image": [
+        "432",
+        0
+      ],
+      "model": [
+        "393",
+        0
+      ]
+    },
+    "class_type": "IPAdapterApply",
+    "_meta": {
+      "title": "Apply IPAdapter"
+    }
+  },
+  "614": {
+    "inputs": {
+      "image": "headshot (9).jpeg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "617": {
+    "inputs": {
+      "op": "Sub",
+      "a": [
+        "619",
+        2
+      ],
+      "b": [
+        "622",
+        0
+      ]
+    },
+    "class_type": "CM_FloatBinaryOperation",
+    "_meta": {
+      "title": "FloatBinaryOperation"
+    }
+  },
+  "619": {
+    "inputs": {
+      "image": [
+        "480",
+        0
+      ]
+    },
+    "class_type": "Image Size to Number",
+    "_meta": {
+      "title": "Image Size to Number"
+    }
+  },
+  "622": {
+    "inputs": {
+      "Value": 380
+    },
+    "class_type": "Float",
+    "_meta": {
+      "title": "Float"
+    }
+  },
+  "623": {
+    "inputs": {
+      "a": [
+        "617",
+        0
+      ]
+    },
+    "class_type": "CM_FloatToInt",
+    "_meta": {
+      "title": "FloatToInt"
+    }
+  },
+  "625": {
+    "inputs": {
+      "a": [
+        "626",
+        0
+      ]
+    },
+    "class_type": "CM_FloatToInt",
+    "_meta": {
+      "title": "FloatToInt"
+    }
+  },
+  "626": {
+    "inputs": {
+      "op": "Sub",
+      "a": [
+        "619",
+        3
+      ],
+      "b": [
+        "627",
+        0
+      ]
+    },
+    "class_type": "CM_FloatBinaryOperation",
+    "_meta": {
+      "title": "FloatBinaryOperation"
+    }
+  },
+  "627": {
+    "inputs": {
+      "Value": 1200
+    },
+    "class_type": "Float",
+    "_meta": {
+      "title": "Float"
+    }
+  }
+}

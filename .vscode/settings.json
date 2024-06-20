@@ -1,0 +1,9 @@
+{
+    "yaml.schemas": {
+        "file:///c%3A/Users/jeffr/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
+        "https://json.schemastore.org/yamllint.json": [
+            "file:///Users/jeffreycai/Documents/Private/app-comfyui-apigw/workflows.yaml",
+            "file:///Users/jeffreycai/Documents/Private/app-comfyui-apigw/workflows.yml"
+        ]
+    }
+}

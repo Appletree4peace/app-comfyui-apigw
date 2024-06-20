@@ -1,0 +1,9 @@
+[submodule "module_gmail_sender"]
+	path = module_gmail_sender
+	url = git@github.com:jeffreycai/module_gmail_sender.git
+[submodule "AIconic"]
+	path = AIconic
+	url = git@github.com:jeffreycai/AIconic.git
+[submodule "module_python_l10n_logger"]
+	path = module_python_l10n_logger
+	url = git@github.com:jeffreycai/module_python_l10n_logger.git

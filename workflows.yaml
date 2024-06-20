@@ -1,0 +1,92 @@
+---
+workflows:
+  # reactor_faceswap
+  reactor_faceswap: # file paths below is relative to 'workflows/<workflow>/'
+    name: Face Swap
+    files:
+      - name: body
+        default: images/elon-musk-portrait.jpeg
+      - name: face
+        default: images/mabaoguo-portrait.webp
+    inputs:
+      - name: prompt_positive
+        type: textarea
+        default: a person
+      - name: prompt_negative
+        type: textarea
+        default: blurry, horror
+    workflow_api_file: api.json
+
+  # cute_3d
+  cute_3d:
+    name: 3D Cute Portrait
+    files:
+      - name: face
+        default: images/face_huge.png
+      - name: pose
+        default: images/pose_sitting.jpg
+    inputs:
+      - name: pre_set
+        type: select
+        options:
+          - standing_singer
+          - sitting
+          - casual_sit
+          - like_for_like
+      - name: prompt_positive
+        type: textarea
+        default: "(Cute cartoon character sitting on chair),(looking at viewer:2),(feet on floor:2), (wooden floor:2), wearing simple beautiful clothes, portrait photography, (stage lighting from front:1.2), large aperture, empty background, empty studio, blue clean background :2, blue curtain: 2, blue empty background: 2, clean floor, blue floor: 2, solo, blue background: 2, happy smile: 2, solo"
+    workflow_api_file: api.json
+
+  # you_and_me
+  you_and_me:
+    name: You And Me
+    files:
+      - name: you
+        default: images/face_angelina_jolie.png
+      - name: me
+        default: images/face_brad_pitt.png
+    inputs:
+      - name: prompt_positive
+        type: textarea
+        default: "A couple leaning close together for a sweet picture,front:1.5,(looking at viewer:2)."
+      - name: prompt_negative
+        type: textarea
+        default: "Rolls eyes, no eyeballs, Rolling eyes, no eyeballs, pure white eyes, Covered face. Half of the face, Bad smile, Weird smile, hand:2, nude, nsfw, Huge teeth"
+    workflow_api_file: api.json
+
+  instantid:
+    name: Instant ID
+    files:
+      - name: face
+        default: images/face_huge.png
+      - name: pose
+        default: images/instantid_pose.png
+      - name: logo
+        default: images/instantid_logo.png
+    inputs:
+      - name: pre_set
+        type: select
+        options:
+          - film_noir
+          - neon
+          - snow
+          - line_art
+      - name: prompt_positive
+        type: textarea
+        default: "eyes looking stright at front"
+      - name: prompt_negative
+        type: textarea
+        default: "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, looking sideways, ugly"
+      - name: style_name
+        type: select
+        options:
+          - Film Noir
+          - Neon
+          - Snow
+          - Line art
+      - name: apply_logo
+        type: checkbox
+        default: true
+      
+    workflow_api_file: api.json

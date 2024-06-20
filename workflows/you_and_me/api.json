@@ -1,0 +1,791 @@
+{
+  "3": {
+    "inputs": {
+      "width": 768,
+      "height": 512,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "7": {
+    "inputs": {
+      "vae_name": "sdxl_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "10": {
+    "inputs": {
+      "ipadapter_file": "ip-adapter-plus_sdxl_vit-h.bin"
+    },
+    "class_type": "IPAdapterModelLoader",
+    "_meta": {
+      "title": "Load IPAdapter Model"
+    }
+  },
+  "11": {
+    "inputs": {
+      "clip_name": "IPAdapter_image_encoder_sd15_CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+    },
+    "class_type": "CLIPVisionLoader",
+    "_meta": {
+      "title": "Load CLIP Vision"
+    }
+  },
+  "12": {
+    "inputs": {
+      "image": "face_angelina_jolie (1).png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "27": {
+    "inputs": {
+      "image": "face_brad_pitt (1).png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "32": {
+    "inputs": {
+      "value": 1,
+      "width": 490,
+      "height": 512
+    },
+    "class_type": "SolidMask",
+    "_meta": {
+      "title": "SolidMask"
+    }
+  },
+  "33": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "operation": "add",
+      "destination": [
+        "34",
+        0
+      ],
+      "source": [
+        "47",
+        0
+      ]
+    },
+    "class_type": "MaskComposite",
+    "_meta": {
+      "title": "MaskComposite"
+    }
+  },
+  "34": {
+    "inputs": {
+      "value": 0,
+      "width": 768,
+      "height": 512
+    },
+    "class_type": "SolidMask",
+    "_meta": {
+      "title": "SolidMask"
+    }
+  },
+  "37": {
+    "inputs": {
+      "value": 1,
+      "width": 500,
+      "height": 512
+    },
+    "class_type": "SolidMask",
+    "_meta": {
+      "title": "SolidMask"
+    }
+  },
+  "38": {
+    "inputs": {
+      "x": 270,
+      "y": 0,
+      "operation": "add",
+      "destination": [
+        "34",
+        0
+      ],
+      "source": [
+        "48",
+        0
+      ]
+    },
+    "class_type": "MaskComposite",
+    "_meta": {
+      "title": "MaskComposite"
+    }
+  },
+  "47": {
+    "inputs": {
+      "left": 0,
+      "top": 0,
+      "right": 250,
+      "bottom": 0,
+      "mask": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "FeatherMask",
+    "_meta": {
+      "title": "FeatherMask"
+    }
+  },
+  "48": {
+    "inputs": {
+      "left": 250,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "mask": [
+        "37",
+        0
+      ]
+    },
+    "class_type": "FeatherMask",
+    "_meta": {
+      "title": "FeatherMask"
+    }
+  },
+  "50": {
+    "inputs": {
+      "weight": 0.8,
+      "noise": 0.2,
+      "weight_type": "linear",
+      "start_at": 0.2,
+      "end_at": 0.8,
+      "unfold_batch": false,
+      "ipadapter": [
+        "10",
+        0
+      ],
+      "clip_vision": [
+        "11",
+        0
+      ],
+      "image": [
+        "27",
+        0
+      ],
+      "model": [
+        "51",
+        0
+      ],
+      "attn_mask": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "IPAdapterApply",
+    "_meta": {
+      "title": "Apply IPAdapter"
+    }
+  },
+  "51": {
+    "inputs": {
+      "weight": 0.8,
+      "noise": 0.2,
+      "weight_type": "linear",
+      "start_at": 0.2,
+      "end_at": 0.8,
+      "unfold_batch": false,
+      "ipadapter": [
+        "10",
+        0
+      ],
+      "clip_vision": [
+        "11",
+        0
+      ],
+      "image": [
+        "12",
+        0
+      ],
+      "model": [
+        "122",
+        0
+      ],
+      "attn_mask": [
+        "33",
+        0
+      ]
+    },
+    "class_type": "IPAdapterApply",
+    "_meta": {
+      "title": "Apply IPAdapter"
+    }
+  },
+  "52": {
+    "inputs": {
+      "mask": [
+        "33",
+        0
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "53": {
+    "inputs": {
+      "images": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "54": {
+    "inputs": {
+      "mask": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "55": {
+    "inputs": {
+      "images": [
+        "54",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "56": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "142",
+        5
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "61": {
+    "inputs": {
+      "images": [
+        "105",
+        5
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "76": {
+    "inputs": {
+      "text": [
+        "183",
+        0
+      ],
+      "clip": [
+        "82",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "77": {
+    "inputs": {
+      "text": [
+        "183",
+        1
+      ],
+      "clip": [
+        "82",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "80": {
+    "inputs": {
+      "text_positive": [
+        "113",
+        0
+      ],
+      "text_negative": [
+        "196",
+        0
+      ],
+      "style": "sai-enhance",
+      "log_prompt": false,
+      "style_positive": true,
+      "style_negative": true
+    },
+    "class_type": "SDXLPromptStyler",
+    "_meta": {
+      "title": "SDXL Prompt Styler"
+    }
+  },
+  "82": {
+    "inputs": {
+      "ckpt_name": {
+        "content": "samaritan3dCartoon_v40SDXL.safetensors",
+        "image": null
+      },
+      "example": "[none]"
+    },
+    "class_type": "CheckpointLoader|pysssss",
+    "_meta": {
+      "title": "Checkpoint Loader 🐍"
+    }
+  },
+  "98": {
+    "inputs": {
+      "weight": 1,
+      "noise": 0.1,
+      "weight_type": "linear",
+      "start_at": 0,
+      "end_at": 1,
+      "unfold_batch": false,
+      "ipadapter": [
+        "100",
+        0
+      ],
+      "clip_vision": [
+        "101",
+        0
+      ],
+      "image": [
+        "27",
+        0
+      ],
+      "model": [
+        "99",
+        0
+      ],
+      "attn_mask": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "IPAdapterApply",
+    "_meta": {
+      "title": "Apply IPAdapter"
+    }
+  },
+  "99": {
+    "inputs": {
+      "weight": 1,
+      "noise": 0.1,
+      "weight_type": "linear",
+      "start_at": 0,
+      "end_at": 1,
+      "unfold_batch": false,
+      "ipadapter": [
+        "100",
+        0
+      ],
+      "clip_vision": [
+        "101",
+        0
+      ],
+      "image": [
+        "12",
+        0
+      ],
+      "model": [
+        "122",
+        0
+      ],
+      "attn_mask": [
+        "33",
+        0
+      ]
+    },
+    "class_type": "IPAdapterApply",
+    "_meta": {
+      "title": "Apply IPAdapter"
+    }
+  },
+  "100": {
+    "inputs": {
+      "ipadapter_file": "ip-adapter-plus-face_sdxl_vit-h.bin"
+    },
+    "class_type": "IPAdapterModelLoader",
+    "_meta": {
+      "title": "Load IPAdapter Model"
+    }
+  },
+  "101": {
+    "inputs": {
+      "clip_name": "IPAdapter_image_encoder_sd15_CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+    },
+    "class_type": "CLIPVisionLoader",
+    "_meta": {
+      "title": "Load CLIP Vision"
+    }
+  },
+  "105": {
+    "inputs": {
+      "seed": [
+        "209",
+        0
+      ],
+      "steps": 20,
+      "cfg": 4.5,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1,
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "50",
+        0
+      ],
+      "positive": [
+        "76",
+        0
+      ],
+      "negative": [
+        "77",
+        0
+      ],
+      "latent_image": [
+        "3",
+        0
+      ],
+      "optional_vae": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "107": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 2,
+      "samples": [
+        "105",
+        3
+      ]
+    },
+    "class_type": "LatentUpscaleBy",
+    "_meta": {
+      "title": "Upscale Latent By"
+    }
+  },
+  "113": {
+    "inputs": {
+      "text": "A couple leaning close together for a sweet picture,front:1.5,(looking at viewer:2). girl left, boy right"
+    },
+    "class_type": "Text _O",
+    "_meta": {
+      "title": "Text _O"
+    }
+  },
+  "122": {
+    "inputs": {
+      "lora_name": "concept_controls\\smiling.pt",
+      "strength_model": 3,
+      "model": [
+        "178",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoraLoaderModelOnly"
+    }
+  },
+  "129": {
+    "inputs": {
+      "seed": 179827985653663,
+      "steps": 25,
+      "cfg": 6,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 0.5,
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "98",
+        0
+      ],
+      "positive": [
+        "105",
+        1
+      ],
+      "negative": [
+        "105",
+        2
+      ],
+      "latent_image": [
+        "107",
+        0
+      ],
+      "optional_vae": [
+        "105",
+        4
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "135": {
+    "inputs": {
+      "images": [
+        "129",
+        5
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "142": {
+    "inputs": {
+      "seed": 1068186317547115,
+      "steps": 20,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 0.6,
+      "preview_method": "auto",
+      "vae_decode": "true",
+      "model": [
+        "98",
+        0
+      ],
+      "positive": [
+        "129",
+        1
+      ],
+      "negative": [
+        "129",
+        2
+      ],
+      "latent_image": [
+        "177",
+        0
+      ],
+      "optional_vae": [
+        "129",
+        4
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "143": {
+    "inputs": {
+      "images": [
+        "142",
+        5
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "158": {
+    "inputs": {
+      "text": "head",
+      "blur": 20,
+      "threshold": 0.2,
+      "dilation_factor": 15,
+      "image": [
+        "129",
+        5
+      ]
+    },
+    "class_type": "CLIPSeg",
+    "_meta": {
+      "title": "CLIPSeg"
+    }
+  },
+  "160": {
+    "inputs": {
+      "mask": [
+        "158",
+        0
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "162": {
+    "inputs": {
+      "images": [
+        "160",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "177": {
+    "inputs": {
+      "samples": [
+        "129",
+        3
+      ],
+      "mask": [
+        "158",
+        0
+      ]
+    },
+    "class_type": "SetLatentNoiseMask",
+    "_meta": {
+      "title": "Set Latent Noise Mask"
+    }
+  },
+  "178": {
+    "inputs": {
+      "lora_name": "concept_controls\\age.pt",
+      "strength_model": -3,
+      "model": [
+        "184",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoraLoaderModelOnly"
+    }
+  },
+  "183": {
+    "inputs": {
+      "text_positive": [
+        "80",
+        0
+      ],
+      "text_negative": [
+        "80",
+        1
+      ],
+      "style": "sai-photographic",
+      "log_prompt": false,
+      "style_positive": true,
+      "style_negative": true
+    },
+    "class_type": "SDXLPromptStyler",
+    "_meta": {
+      "title": "SDXL Prompt Styler"
+    }
+  },
+  "184": {
+    "inputs": {
+      "lora_name": "concept_controls\\cartoon_style.pt",
+      "strength_model": 1,
+      "model": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoraLoaderModelOnly"
+    }
+  },
+  "196": {
+    "inputs": {
+      "text": "Rolls eyes, no eyeballs，Rolling eyes, no eyeballs, pure white eyes，Covered face. Half of the face，Bad smile，Weird smile，hand:2，nude，nsfw，Huge teeth"
+    },
+    "class_type": "Text _O",
+    "_meta": {
+      "title": "Text _O"
+    }
+  },
+  "197": {
+    "inputs": {
+      "MODEL": [
+        "122",
+        0
+      ],
+      "CLIP": [
+        "82",
+        1
+      ],
+      "VAE": [
+        "82",
+        2
+      ]
+    },
+    "class_type": "Anything Everywhere3",
+    "_meta": {
+      "title": "Anything Everywhere3"
+    }
+  },
+  "201": {
+    "inputs": {
+      "image": "gabriel-soares-pai-pos-03.jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "204": {
+    "inputs": {
+      "image": [
+        "142",
+        5
+      ]
+    },
+    "class_type": "ImageGenResolutionFromImage",
+    "_meta": {
+      "title": "Generation Resolution From Image"
+    }
+  },
+  "209": {
+    "inputs": {
+      "seed": 222108674233912
+    },
+    "class_type": "seed _O",
+    "_meta": {
+      "title": "seed _O"
+    }
+  }
+}

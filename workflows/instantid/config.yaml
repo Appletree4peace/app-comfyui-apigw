@@ -1,0 +1,34 @@
+---
+art_styles:
+  film_noir:
+    style_name: "Film Noir"
+    pose_image: instantid_pose.png
+    logo_image: instantid_logo.png
+    prompt_positive: "eyes looking stright at front"
+    prompt_negative: "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, looking sideways, ugly"
+    return_node_ids:
+      - "9"
+  neon:
+    style_name: "Neon"
+    pose_image: instantid_pose.png
+    logo_image: instantid_logo.png
+    prompt_positive: "eyes looking stright at front"
+    prompt_negative: "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, looking sideways, ugly"
+    return_node_ids:
+      - "9"
+  snow:
+    style_name: "Snow"
+    pose_image: instantid_pose.png
+    logo_image: instantid_logo.png
+    prompt_positive: "eyes looking stright at front"
+    prompt_negative: "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, looking sideways, ugly"
+    return_node_ids:
+      - "9"
+  line_art:
+    style_name: "Line art"
+    pose_image: instantid_pose.png
+    logo_image: instantid_logo.png
+    prompt_positive: "eyes looking stright at front"
+    prompt_negative: "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, looking sideways, ugly"
+    return_node_ids:
+      - "9"
